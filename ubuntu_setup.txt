@@ -1,0 +1,83 @@
+sudo apt update
+sudo apt upgrade -y
+
+sudo snap refresh
+
+sudo apt install tilix (settings > Appearance > Theme variant >> Dark)
+sudo apt install curl
+
+
+# autopressing key in keyboard
+> xev
+> xmodmap -e 'keycode 20=NoSymbol'
+
+xmodmap -pk
+xmodmap -pk > mykeyboard.txt
+-----------------------------------------------------------------------------------------------------------------------------------------------
+# install anaconda
+curl -O https://repo.anaconda.com/archive/Anaconda3-2023.07-2-Linux-x86_64.sh
+bash Anaconda3-2023.07-2-Linux-x86_64.sh
+yes
+yes
+exit
+(open terminal)
+conda config --set auto_activate_base false
+
+conda create --name pytorch python=3.10
+conda activate pytorch
+conda update --all
+
+conda deactivate
+
+conda create --name tf python=3.10
+-----------------------------------------------------------------------------------------------------------------------------------------------
+# install docker 
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+
+ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+ sudo docker run hello-world
+ 
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+docker run hello-world
+sudo apt install docker-compose
+
+sudo apt install python3-full
+sudo apt install pipx
+pipx install pip
+pipx install virtualenv
+
+sudo apt install python3-pip
+sudo apt install python3-venv python3-pip
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+# install pytorch
+
+conda list
+conda env list
+conda create -n pytorch python=3.10
+conda activate pytorch
+conda install pytorch torchvision torchaudio cpuonly -c pytorch
+conda install ipykernel
+conda install -c anaconda seaborn
+conda install scikit-learn
+conda install -c conda-forge detecto
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+pip install torch torchvision matplotlib tensorboard
+pip install cython matplotlib tqdm scipy ipython ninja yacs opencv-python ffmpeg opencv-contrib-python Pillow scikit-image scikit-learn lmfit imutils pyyaml 
+
+
